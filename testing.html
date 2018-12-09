@@ -1,0 +1,24 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<title>Testing</title></head>
+<body>
+	<button id="2" >Press Me</button>
+	<form method="POST" onsubmit="funct()">
+		Age<input type="text" id="one">
+		GF<input type="text" id="two">
+		GM<input type="text" id="three">
+		<input type="submit" value="submit">
+	</form>
+	<script>
+
+		var x={"Age":10,"Gender_Female":1,"Gender_Male":0};
+		var y=JSON.stringify(x);
+		
+		$.ajax({url:"http://127.0.0.1:12345/predict",contentType:'application/json',dataType:"json",async:true,type:"POST",data:y,success:function(data){
+			alert(data);
+		}});
+		
+	</script>
+</body>
+</html>
